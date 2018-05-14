@@ -1,0 +1,288 @@
+/* 标签样式 */
+
+html body {
+    margin: 0px;
+    height: 100%;
+    padding: 0px;
+    overflow: hidden;
+}
+
+button {
+    background-color: transparent;
+    border: 0px;
+    padding: 0px;
+}
+
+span {
+    margin: 0 2px;
+}
+
+img {
+    vertical-align: unset;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+:root {
+    --fontcolor: #07539E;
+    --leftfontcolor: #ffffff;
+    --leftSelectColor: #76ddfb;
+    /*蓝色字体颜色*/
+    --leftbackgroundcolor: #485465;
+    --rightbackgroundcolor: #F4F6F7;
+    /*菜单背景色*/
+    --selectedcolor: #07539e;
+    /*三级菜单背景色*/
+    --inputbackgroundcolor: #DCE4ED;
+}
+
+/* 公共样式 */
+
+.inlinediv {
+    position: relative;
+    float: left;
+    vertical-align: middle;
+}
+
+.pullright {
+    position: relative;
+    float: right;
+}
+
+/* 整体布局 分左、右上、右下*/
+
+#leftbodyPlus {
+    background-color: var(--leftbackgroundcolor);
+    height: 100%;
+    width: 240px;
+    position: absolute;
+    color: var(--leftfontcolor);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#leftbodyPlus button {
+    width: 240px;
+}
+
+#leftbodyPlus img {
+    float: left;
+}
+
+#leftbodyPlus .arrow {
+    font-size: 16px;
+    margin: 30px 34px;
+}
+
+#rightbody {
+    left: 240px;
+    right: 0px;
+    height: 100%;
+    background-color: var(--rightbackgroundcolor);
+    position: absolute;
+}
+
+/* 左侧菜单区域 */
+
+.logo {
+    margin: 18px 100px 30px 100px;
+}
+
+.menu_icon {
+    margin: 16px 30px;
+}
+
+#menuTree .menu-box {
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#menuTree .menu-box>li {
+    margin: 0px;
+    padding: 0px;
+    line-height: 50px;
+    cursor: pointer;
+}
+#menuTree .menu-box .title{
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+#menuTree .menu-box .title.active{
+    color: var(--leftSelectColor);
+}
+#menuTree .menu-box .title span{
+    vertical-align: middle;
+}
+#menuTree .menu-box .title span:last-child{
+    flex: 1;
+    text-align: right;
+    margin-right: 20px;
+}
+#menuTree .active {
+    color: var(--leftSelectColor);
+}
+
+#menuTree .menu-box>li img {
+    width: 20px;
+    height: 20px;
+    margin: 0px 20px;
+    vertical-align: middle;
+}
+#menuTree .menu-box>li .sub{
+    list-style: none;
+    display: none;
+    padding-left: 0;
+    font-size: 12px;
+    margin: 10px 0;
+}
+#menuTree .menu-box>li .sub li{
+    padding-left: 66px;
+    cursor: pointer;
+}
+#menuTree .menu-box>li .sub li.active{
+    color: var(--leftSelectColor);
+}
+
+
+
+/* 右侧内容区域 */
+
+.topdiv {
+    height: 80px;
+    background-color: #ffffff;
+    position: relative;
+    top: 0px;
+    border-bottom: solid 1px #e5e5e5;
+    padding: 15px 0px;
+}
+
+/* 标题栏 */
+
+#cname {
+    font-size: 24px;
+    color: var(--fontcolor);
+    letter-spacing: 3px;
+    font-weight: bolder;
+    margin-left: 42px;
+}
+
+#ename {
+    font-size: 12px;
+    color: var(--fontcolor);
+    margin-left: 42px;
+}
+
+#userimg {
+    width: 42px;
+    margin: 5px 5px;
+}
+
+#username {
+    color: var(--fontcolor);
+    margin: 14px 74px 14px 5px;
+    font-weight: bolder;
+}
+
+/* 选择项样式 */
+
+#tapmap {
+    position: relative;
+    height: 50px;
+    margin: 20px 0px;
+    z-index: 1;
+    display: flex;
+}
+#tapmap #grandson-menu {
+    display: flex;
+    flex: 1;
+}
+#tapmap #grandson-menu> div {
+    display: none;
+    margin-left: 40px;
+}
+#tapmap #grandson-menu> div button{
+    color: #76ddfb;
+    margin-top: 10px;
+}
+#tapmap #grandson-menu> div >div{
+    display: inline-block;
+    line-height: 50px;
+    color: #9b9b9b;
+    margin: 0 10px;
+    cursor: pointer;
+}
+#tapmap #grandson-menu> div >div.active{
+    color: #07539e;
+    border-bottom:2px solid #07539E
+}
+#Tab .ThreeDiv {
+    margin: 0px 0px 0px 42px;
+    width: auto;
+    float: left;
+    display: none;
+}
+
+#Tab .ThreeDiv button {
+    border: 0px;
+    background-color: transparent;
+    font-size: 16px;
+    color: #9b9b9b;
+    display: inline;
+    outline: none;
+    padding: 6px 12px 12px 12px;
+}
+
+#Tab .ThreeDiv .active {
+    outline: none;
+    border: 0px;
+    border-bottom: 2px solid var(--selectedcolor);
+    color: var(--selectedcolor);
+}
+
+#condition {
+    margin: 0px 56px 0px 0px;
+    float: right;
+}
+
+#condition border {
+    background-color: var(--inputbackgroundcolor);
+    height: 46px;
+    border-radius: 46px;
+    width: 164px;
+    padding: 10px 10px 10px 20px;
+    float: right;
+    margin-left: 10px;
+}
+
+#condition border input {
+    border: 0px;
+    background-color: transparent;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#condition border input:-moz-placeholder {
+    color: var(--fontcolor);
+}
+
+#condition border input:-ms-input-placeholder {
+    color: var(--fontcolor);
+}
+
+#condition border input::-webkit-input-placeholder {
+    color: var(--fontcolor);
+}
+
+#map {
+    border: black 1px solid;
+    height: 700px;
+    margin: 0 54px 0 42px;
+    background-color: #ffffff;
+    border: 0;
+    position: relative;
+}
