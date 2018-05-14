@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>深圳市城市总体规划实施评估平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel='stylesheet' type='text/css' href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type='text/css' href="../css/fileinput.min.css" />
+    <link rel='stylesheet' type='text/css' href="../css/style.css" />
+    <link rel="stylesheet" href="http://58.251.157.179:8399/3.9/js/esri/css/esri.css" />
+    <script src="../js/template.js"></script>
+</head>
+
+<body>
+    <div id="leftbodyPlus">
+        <button class="logobtn">
+            <img class="logo" src="../img/logo.png">
+            <!-- <div class="pullright arrow">收起
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </div> -->
+        </button>
+        <div id="menuTree">
+        </div>
+    </div>
+    <div id="rightbody">
+        <div class="topdiv">
+            <div class="inlinediv">
+                <div id="cname">深圳市城市总体规划实施评估平台</div>
+                <div id="ename">Shenzhen Implementation Evaluation Platform of Urban Master Planning</div>
+            </div>
+            <div class="pullright">
+                <div class="inlinediv">
+                    <img id="userimg" src="../img/temp.jpg" class="img-responsive img-circle center-block" />
+                </div>
+                <div class="inlinediv">
+                    <div id="username">Hello,Admin!</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tapmap">
+            <div id="grandson-menu"></div>
+            <div id="Tab">
+                <div class="ThreeDiv caddiv" id="C2_1">
+                    <button type="button" class="upload_button" data-toggle="modal" data-target="#myModal">上传CAD文件</button>
+                </div>
+            </div>
+            <div id="condition" class="pullright">
+                <border>
+                    <input placeholder="搜索" />
+                    <span>
+                        <img src='../img/search.png' />
+                    </span>
+                </border>
+                <border>
+                    <input placeholder="重点区域" />
+                    <span>
+                        <img src='../img/position.png' />
+                    </span>
+                </border>
+                <border>
+                    <input placeholder="行政区" />
+                    <span>
+                        <img src='../img/circle.png' />
+                    </span>
+                </border>
+            </div>
+
+        </div>
+
+        <div id="map"></div>
+
+        <!-- Modal  上传文件弹出框-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top:30%">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">上传CAD文件</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input id="inputFile" type="file" class="file" name="test" data-show-preview="false">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="showCAD">显示</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/fileinput.min.js"></script>
+    <script src="../js/zh.js"></script>
+    <script src="http://58.251.157.179:8399/3.9/init.js"></script>
+    <script src="../js/terraformer.min.js"></script>
+    <script src="../js/terraformer-arcgis-parser.min.js"></script>
+    <!-- <script src="../js/menu.js"></script> -->
+    <!-- <script src="../js/init.js"></script> -->
+    <script src="../js/map.js"></script>
+    <script src="../js/init-tab.js"></script>
+</body>
+<html>
+<script id="left-menu" type="text/html">
+    <ul class="menu-box">
+        {{each list as value i}}
+            {{if "submenu" in value}}
+                <li class="box has-son">
+                    <div class="title"><span><img src="{{value.img}}"></span><span>{{value.menu}}</span><span class="glyphicon glyphicon-chevron-right"></span></div>
+                    <ul class="sub">
+                        {{each value.submenu as value i}}
+                            <li attr-son="{{value.attr}}" attr-url={{value.url}}>{{value.name}}</li>
+                        {{/each}}
+                    </ul>
+                </li>
+            {{else}} 
+                <li class="box title"><span><img src="{{value.img}}"></span><span>{{value.menu}}</span><span></span></li>
+            {{/if}}
+        {{/each}}
+    </ul>
+</script>
+<script id="3d-menu" type="text/html">
+    {{each list as value i}}
+        {{if "submenu" in value}}
+            {{each value.submenu as v j}}
+                {{if "grandmenu" in v}}
+                    <div class="{{v.attr}}">
+                        {{each v.grandmenu as item j}}
+                            {{if item.type == 'button'}}
+                                <button type="button" class="upload_button" data-toggle="modal" data-target="#myModal">{{item.name}}</button>
+                            {{else}}
+                                <div class="{{v.attr+'-'+j}}" attr-url="{{item.url}}">{{item.name}}</div>
+                            {{/if}}
+
+                        {{/each}}
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+</script>
+<script src="../menu/menu.js"></script>
